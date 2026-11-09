@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSmart - Complete Management System for Schools, Colleges & Coaching Institutes</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            blue: '#0066FF',
+                            darkBlue: '#0A192F',
+                            deepBlue: '#041029',
+                            accent: '#00D2FF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #051937 0%, #0d3875 50%, #155bb5 100%);
+        }
+        .card-gradient {
+            background: linear-gradient(180deg, #103467 0%, #092044 100%);
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-blue selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="hero-gradient text-white border-b border-white/10 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Brand -->
+            <a href="#home" class="flex items-center gap-3 cursor-pointer">
+                <div class="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center text-white text-xl shadow-lg shadow-blue-500/30">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-bold tracking-tight text-white">Edu<span class="text-brand-accent">Smart</span></span>
+                    <p class="text-[10px] text-blue-200 tracking-wider uppercase font-medium leading-tight">Learn • Manage • Grow</p>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#home" class="text-white border-b-2 border-brand-accent pb-1 font-semibold">Home</a>
+                <a href="#about" class="text-blue-100 hover:text-white transition">About</a>
+                <a href="#features" class="text-blue-100 hover:text-white transition">Features</a>
+                <a href="#pricing" class="text-blue-100 hover:text-white transition">Pricing</a>
+                <a href="#contact" class="text-blue-100 hover:text-white transition">Contact</a>
+            </nav>
+
+            <!-- CTA & Login Buttons -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleModal('loginModal')" class="hidden sm:flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition border border-white/20">
+                    <i class="fa-regular fa-user"></i> Login
+                </button>
+                <button onclick="toggleModal('demoModal')" class="flex items-center gap-2 bg-brand-blue hover:bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-blue-500/30 transition">
+                    Get Started <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white pt-10 pb-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Left Column -->
+                <div class="lg:col-span-7 space-y-6 z-10">
+                    <div class="relative">
+                        <div class="absolute -top-6 left-48 opacity-30 grid grid-cols-6 gap-2 hidden sm:grid">
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                            Make Your Institute <br/>
+                            <span class="text-brand-accent">Digitally Smart!</span>
+                        </h1>
+                    </div>
+
+                    <h2 class="text-xl sm:text-2xl text-blue-100 font-semibold max-w-xl leading-relaxed">
+                        A Complete Management System for Schools, Colleges & Coaching Institutes
+                    </h2>
+
+                    <p class="text-blue-200 text-base max-w-lg">
+                        Website + App + AI Chatbot + Complete Dashboard in One Powerful Platform
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap items-center gap-4">
+                        <button onclick="toggleModal('demoModal')" class="bg-brand-blue hover:bg-blue-600 text-white font-semibold px-8 py-3.5 rounded-full shadow-lg shadow-blue-500/40 flex items-center gap-3 transition">
+                            Request a Demo <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button onclick="alert('Playing Demo Video...')" class="flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-6 py-3.5 rounded-full font-semibold border border-white/20 transition">
+                            <span class="w-8 h-8 rounded-full bg-white text-brand-blue flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-play"></i>
+                            </span>
+                            Watch Video
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="lg:col-span-5 relative flex justify-end">
+                    <div class="w-full lg:w-[95%] relative">
+                        <img src="edusmart-banner.png" alt="EduSmart Banner" class="w-full h-auto object-cover rounded-2xl shadow-2xl border-4 border-white/10">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Feature Icons Strip (8 Cards) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-30">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
+            <div class="bg-white p-4 rounded-xl shadow-md border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-2 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fa-solid fa-globe"></i></div>
+                <span class="text-xs font-bold text-slate-800 leading-tight">Professional Website</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-green-50 text-green-500 flex items-center justify-center text-xl mb-2 group-hover:bg-green-500 group-hover:text-white transition"><i class="fa-brands fa-android"></i></div>
+                <span class="text-xs font-bold text-slate-800 leading-tight">Android Application</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-2 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="text-xs font-bold text-slate-800 leading-tight">Student & Parent Dashboards</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-2 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fa-solid fa-user-gear"></i></div>
+                <span class="text-xs font-bold text-slate-800 leading-tight">Teacher Dashboard</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-2 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fa-solid fa-user-shield"></i></div>
+                <span class="text-xs font-bold text-slate-800 leading-tight">Principal & Admin Dashboard</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-2 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fa-solid fa-robot"></i></div>
+                <span class="text-xs font-bold text-slate-800 leading-tight">AI-Powered Chatbot</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-2 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fa-solid fa-comments"></i></div>
+                <span class="text-xs font-bold text-slate-800 leading-tight">Live Communication <br/><span class="text-[9px] font-normal text-slate-500">(Student • Teacher • Parent)</span></span>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-md border border-slate-100 flex flex-col items-center text-center hover:shadow-xl transition group cursor-pointer">
+                <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center text-xl mb-2 group-hover:bg-brand-blue group-hover:text-white transition"><i class="fa-solid fa-file-lines"></i></div>
+                <span class="text-xs font-bold text-slate-800 leading-tight">Online Admission</span>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-b border-slate-200">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <h2 class="text-3xl font-extrabold text-slate-900">About EduSmart</h2>
+            <p class="text-slate-600 mt-2">Empowering educational institutions with end-to-end digital automation.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center">
+                <i class="fa-solid fa-rocket text-3xl text-brand-blue mb-4"></i>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">Fast Deployment</h3>
+                <p class="text-xs text-slate-600">Get your institution live with a dedicated domain and app in just a few days.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center">
+                <i class="fa-solid fa-layer-group text-3xl text-brand-blue mb-4"></i>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">All-in-One Platform</h3>
+                <p class="text-xs text-slate-600">No need for multiple tools—manage fees, attendance, results, and communications in one place.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center">
+                <i class="fa-solid fa-headset text-3xl text-brand-blue mb-4"></i>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">24/7 Dedicated Support</h3>
+                <p class="text-xs text-slate-600">Our engineering team ensures uninterrupted service and continuous feature updates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase Section (4 Cards Grid) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="features">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl font-extrabold text-slate-900">Powerful Platform Features</h2>
+            <p class="text-slate-600 mt-2">Designed specifically for modern schools, colleges, and coaching centers.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- CARD 1 -->
+            <div class="card-gradient rounded-2xl p-6 text-white border border-blue-900 shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-desktop text-2xl text-brand-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-lg leading-snug">Powerful Dashboards</h3>
+                            <p class="text-xs text-blue-200">Manage everything with ease</p>
+                        </div>
+                    </div>
+                    <div class="bg-white text-slate-800 rounded-xl p-3 text-xs shadow-inner mt-4 border border-blue-100">
+                        <div class="flex justify-between items-center border-b pb-2 mb-2">
+                            <span class="font-bold text-brand-blue text-[11px]"><i class="fa-solid fa-graduation-cap"></i> EduSmart</span>
+                            <span class="text-[9px] bg-slate-100 px-2 py-0.5 rounded text-slate-500">Live</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-3">
+                            <div class="bg-blue-50 p-2 rounded">
+                                <span class="text-[9px] text-slate-500 block">Total Students</span>
+                                <span class="font-bold text-brand-blue text-sm">2,500</span>
+                            </div>
+                            <div class="bg-orange-50 p-2 rounded">
+                                <span class="text-[9px] text-slate-500 block">Total Teachers</span>
+                                <span class="font-bold text-orange-600 text-sm">150</span>
+                            </div>
+                            <div class="bg-emerald-50 p-2 rounded">
+                                <span class="text-[9px] text-slate-500 block">Attendance</span>
+                                <span class="font-bold text-emerald-600 text-sm">92%</span>
+                            </div>
+                            <div class="bg-amber-50 p-2 rounded">
+                                <span class="text-[9px] text-slate-500 block">Notices</span>
+                                <span class="font-bold text-amber-600 text-sm">12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="card-gradient rounded-2xl p-6 text-white border border-blue-900 shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-mobile-screen-button text-2xl text-brand-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-lg leading-snug">Student App</h3>
+                            <p class="text-xs text-blue-200">Access learning anytime, anywhere</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 text-white rounded-2xl p-4 border-2 border-slate-700 shadow-inner max-w-[220px] mx-auto mt-2 text-center">
+                        <span class="text-xs font-bold text-brand-accent">EduSmart Student Portal</span>
+                        <div class="grid grid-cols-2 gap-2 my-3">
+                            <div class="bg-slate-800 p-2 rounded-lg text-center">
+                                <i class="fa-solid fa-book text-brand-accent mb-1 text-xs"></i>
+                                <span class="text-[9px] block">My Classes</span>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded-lg text-center">
+                                <i class="fa-solid fa-clipboard-list text-amber-400 mb-1 text-xs"></i>
+                                <span class="text-[9px] block">Assignments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="card-gradient rounded-2xl p-6 text-white border border-blue-900 shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-comments text-2xl text-brand-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-lg leading-snug">Smart AI Chatbot</h3>
+                            <p class="text-xs text-blue-200">Get instant help 24/7</p>
+                        </div>
+                    </div>
+                    <div class="bg-white text-slate-800 rounded-xl p-3 text-xs space-y-2 mt-4 shadow-inner">
+                        <div class="flex justify-end">
+                            <span class="bg-blue-100 text-brand-blue rounded-lg px-3 py-1.5 text-[11px] max-w-[80%]">
+                                Explain photosynthesis.
+                            </span>
+                        </div>
+                        <div class="flex gap-2 items-start">
+                            <div class="w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-[10px] shrink-0">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div class="bg-slate-100 rounded-lg p-2 text-[10px] text-slate-700 leading-relaxed">
+                                Photosynthesis is how plants make food using sunlight. 🌿
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="card-gradient rounded-2xl p-6 text-white border border-blue-900 shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-shield-halved text-2xl text-emerald-400"></i>
+                        <div>
+                            <h3 class="font-bold text-lg leading-snug">Secure & Reliable</h3>
+                            <p class="text-xs text-blue-200">Your data, our priority</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 mt-6 text-xs text-blue-100">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i><span>Safe & Secure Platform</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i><span>Regular Backups</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i><span>Reliable Support</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i><span>99.9% Uptime</span></li>
+                    </ul>
+                </div>
+                <div class="mt-6 text-center">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xl">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pricing Footer Strip -->
+    <footer class="bg-brand-darkBlue border-t border-slate-800 text-white py-8" id="pricing">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                
+                <div class="flex items-center gap-4">
+                    <div class="text-brand-accent text-3xl font-bold">₹</div>
+                    <div>
+                        <h4 class="font-bold text-sm">Affordable Pricing</h4>
+                        <p class="text-xs text-slate-300">One-Time Payment: <span class="font-semibold text-white">₹1,00,000</span></p>
+                        <p class="text-[11px] text-slate-400">EMI Option: ₹1,20,000 (from ₹1,000–₹2,000/month)</p>
+                        <p class="text-[9px] text-slate-400 mt-0.5">*Hosting & domain costs are separate.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 border-t md:border-t-0 md:border-l border-slate-700 pt-4 md:pt-0 md:pl-6">
+                    <i class="fa-solid fa-wrench text-2xl text-blue-400"></i>
+                    <div>
+                        <h4 class="font-bold text-sm">Monthly Maintenance</h4>
+                        <p class="text-xs text-slate-300">₹1,500 – ₹3,000/month</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between border-t md:border-t-0 md:border-l border-slate-700 pt-4 md:pt-0 md:pl-6">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-headset text-2xl text-emerald-400"></i>
+                        <span class="font-semibold text-xs leading-tight">Let's Build a Smarter Educational Environment!</span>
+                    </div>
+                    <button onclick="toggleModal('demoModal')" class="bg-white text-brand-darkBlue font-bold px-4 py-2 rounded-full text-xs shrink-0 ml-2 hover:bg-slate-100 transition">Contact Us</button>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <h2 class="text-3xl font-extrabold text-slate-900">Contact Us</h2>
+            <p class="text-slate-600 mt-2">Have questions? Reach out to our team today.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="space-y-4">
+                <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+                    <i class="fa-solid fa-envelope text-brand-blue text-xl"></i>
+                    <div><h4 class="font-bold text-xs text-slate-500 uppercase">Email</h4><p class="text-sm font-semibold text-slate-800">sahaygautam53@gmail.com</p></div>
+                </div>
+                <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+                    <i class="fa-solid fa-phone text-brand-blue text-xl"></i>
+                    <div><h4 class="font-bold text-xs text-slate-500 uppercase">Phone</h4><p class="text-sm font-semibold text-slate-800">+91 XXXXX XXXXX</p></div>
+                </div>
+                <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+                    <i class="fa-solid fa-location-dot text-brand-blue text-xl"></i>
+                    <div><h4 class="font-bold text-xs text-slate-500 uppercase">Office</h4><p class="text-sm font-semibold text-slate-800">Buxar, Bihar, India</p></div>
+                </div>
+            </div>
+            <form id="contactForm" onsubmit="submitContactForm(event)" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                <input type="text" id="contactName" required placeholder="Your Name" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue">
+                <input type="email" id="contactEmail" required placeholder="Your Email" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue">
+                <textarea id="contactMessage" required rows="3" placeholder="Your Message" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue"></textarea>
+                <button type="submit" id="contactBtn" class="w-full bg-brand-blue text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-600 transition">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Request a Demo Modal -->
+    <div id="demoModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative mx-4 shadow-2xl">
+            <button onclick="toggleModal('demoModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold mb-1 text-slate-900">Request a Demo</h3>
+            <p class="text-xs text-slate-500 mb-4">Fill in your details and our team will get back to you shortly.</p>
+            <form id="demoForm" onsubmit="submitDemoForm(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Institute Name</label>
+                    <input type="text" id="demoInstitute" required placeholder="e.g. St. Xavier School" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name</label>
+                    <input type="text" id="demoName" required placeholder="John Doe" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+                    <input type="tel" id="demoPhone" required placeholder="+91 9876543210" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue">
+                </div>
+                <button type="submit" id="demoBtn" class="w-full bg-brand-blue text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-600 transition">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative mx-4 text-slate-800 shadow-2xl">
+            <button onclick="toggleModal('loginModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <h3 class="text-xl font-bold mb-1">User Login</h3>
+            <p class="text-xs text-slate-500 mb-4">Enter your credentials to access your account.</p>
+            <form id="loginForm" onsubmit="submitLoginForm(event)" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name</label>
+                    <input type="text" id="loginName" required placeholder="John Doe" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="name@institute.com" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••" class="w-full px-3 py-2 border rounded-lg text-sm outline-none focus:border-brand-blue">
+                </div>
+                <button type="submit" id="loginBtn" class="w-full bg-brand-blue text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-600 transition">Log In</button>
+            </form>
+        </div>
+    </div>
+
+        <!-- Firebase URL Integration Script -->
+    <script>
+        const FIREBASE_DB_URL = "https://slace-4d2ae-default-rtdb.asia-southeast1.firebasedatabase.app";
+
+        function toggleModal(id) {
+            document.getElementById(id).classList.toggle('hidden');
+        }
+
+        // 1. Request a Demo Form Handler
+        async function submitDemoForm(event) {
+            event.preventDefault();
+            const btn = document.getElementById('demoBtn');
+            btn.innerText = "Submitting...";
+            btn.disabled = true;
+
+            const data = {
+                institute: document.getElementById('demoInstitute').value,
+                name: document.getElementById('demoName').value,
+                phone: document.getElementById('demoPhone').value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch(`${FIREBASE_DB_URL}/demo_requests.json`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('Demo requested successfully.');
+                    document.getElementById('demoForm').reset();
+                    toggleModal('demoModal');
+                } else {
+                    alert('Failed to save data. Try next time.');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Network error occurred.');
+            } finally {
+                btn.innerText = "Submit Request";
+                btn.disabled = false;
+            }
+        }
+
+        // 2. Contact Us Form Handler
+        async function submitContactForm(event) {
+            event.preventDefault();
+            const btn = document.getElementById('contactBtn');
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            const data = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                message: document.getElementById('contactMessage').value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch(`${FIREBASE_DB_URL}/contacts.json`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('we will contact you in few yours on your Gmail!');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    alert('Failed to send message.');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Network error occurred.');
+            } finally {
+                btn.innerText = "Send Message";
+                btn.disabled = false;
+            }
+        }
+
+        // 3. User Login Data Handler
+        async function submitLoginForm(event) {
+            event.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            btn.innerText = "Logging in...";
+            btn.disabled = true;
+
+            const data = {
+                name: document.getElementById('loginName').value,
+                email: document.getElementById('loginEmail').value,
+                loginTime: new Date().toISOString()
+            };
+
+            try {
+                await fetch(`${FIREBASE_DB_URL}/logins.json`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                alert('Logged in successfully!');
+                document.getElementById('loginForm').reset();
+                toggleModal('loginModal');
+            } catch (error) {
+                console.error(error);
+                alert('Login saved error.');
+            } finally {
+                btn.innerText = "Log In";
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
